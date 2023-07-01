@@ -5,6 +5,8 @@ WORKDIR /var/www/html
 RUN unzip hexashop.zip
 RUN rm -rf hexashop.zip &&\
     mv templatemo_571_hexashop/* . &&\
-    rm -rf templatemo_571_hexashop
+    rm -rf templatemo_571_hexashop &&\
+    mkdir /var/www/html/secure &&\
+    touch /var/www/html/secure/secure.txt
 EXPOSE 80
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
